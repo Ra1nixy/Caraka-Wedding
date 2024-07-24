@@ -49,7 +49,10 @@ section{
     text-transform: uppercase;
     font-size: 4rem;
 }
-
+.small-text {
+    font-size: 15px; 
+  }
+  
 .heading span{
     color:var(--main-color);
     text-transform: uppercase;
@@ -310,6 +313,9 @@ section{
     font-size: 1.5rem;
     color:#eee;
     padding:1rem 0;
+    text-align: left;
+    padding-left: 8px; /* Remove any left padding */
+    margin-left: 8px; 
 }
 
 .price .box-container .box ul li i{
