@@ -357,12 +357,6 @@
 
 <!-- price section ends -->
 
-
-
-
-
-
-
 <!-- contact section starts  -->
 
 <section class="contact" id="contact" data-aos="zoom-in" data-aos-anchor-placement="top-bottom" data-aos-duration="1000">
@@ -409,6 +403,167 @@
 </section>
 
 <!-- contact section ends -->
+ <!-- review section starts  -->
+
+<section class="reivew" id="review" data-aos="fade-up" data-aos-duration="1000"> 
+    
+    <h1 class="heading" data-aos="fade-up" data-aos-duration="1000">Review <span>Pelanggan</span></h1>
+    <style>
+    .comment-section {
+        background-color: #333;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+    .comment-section h2 {
+        position: top;
+        text-align: center;
+        text-transform: capitalize;
+        padding-bottom: 10px;
+        color: #ddd;
+    }
+    
+    #comment-form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #name-input,
+    #comment-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #484848;
+        border-radius: 5px;
+    }
+    
+    button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #636363;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #f7b731;
+    }
+    
+    #comments-container {
+        margin-top: 20px;
+    }
+    
+    .comment {
+        background-color: #484848;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        color: #ddd;
+        word-wrap: break-word; /* Ensure long words break to the next line */
+        overflow: hidden; /* Ensure content fits within the box */
+        font-size: medium;
+    }
+    
+    .comment .comment-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #ddd;
+    }
+    .comment .delete-button {
+        position: relative;
+        right: 10px;
+        left: 450px;
+        bottom: 10px;
+        background-color: #ff4d4d;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px 10px;
+    }
+    
+    .comment .delete-button:hover {
+        background-color: #ff1a1a;
+    }
+    @media (max-width: 600px) {
+        .comment {
+            padding: 10px 60px 10px 10px; /* Increased right padding for Delete button space */
+            font-size: medium;
+        }
+    
+        .comment .delete-button {
+            top: 100%;
+            left: 240px;
+            bottom: 10px;
+            transform: translateY(-50%);
+        }
+    }
+    
+        </style>
+
+    <div class="comment-section" data-aos="fade-up" data-aos-duration="1000">
+        <h2>Leave a Comment</h2>
+        <form id="comment-form">
+            <input type="text" id="name-input" placeholder="Your Name" required>
+            <textarea id="comment-input" placeholder="Write your comment here..." required></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+        <div id="comments-container">
+            <!-- Comments will be appended here -->
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+        // scripts.js
+document.getElementById('comment-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const nameInput = document.getElementById('name-input');
+    const commentInput = document.getElementById('comment-input');
+    const nameText = nameInput.value.trim();
+    const commentText = commentInput.value.trim();
+    
+    if (nameText !== '' && commentText !== '') {
+        const commentsContainer = document.getElementById('comments-container');
+        
+        const commentElement = document.createElement('div');
+        commentElement.classList.add('comment');
+        
+        const nameElement = document.createElement('div');
+        nameElement.classList.add('comment-name');
+        nameElement.textContent = nameText;
+        
+        const commentContentElement = document.createElement('div');
+        commentContentElement.classList.add('comment-content');
+        commentContentElement.textContent = commentText;
+        
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', function() {
+            commentsContainer.removeChild(commentElement);
+        });
+        
+        commentElement.appendChild(nameElement);
+        commentElement.appendChild(commentContentElement);
+        commentElement.appendChild(deleteButton);
+        
+        commentsContainer.appendChild(commentElement);
+        
+        nameInput.value = '';
+        commentInput.value = '';
+    }
+});
+
+
+    </script>
+</section>
+
+<!-- review section ends -->
 
 <!-- footer section starts  -->
 
